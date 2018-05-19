@@ -1,0 +1,600 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E553A01C20AFC4EC0003BF7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553A01B20AFC4EC0003BF7B /* AppDelegate.swift */; };
+		E553A01E20AFC4EC0003BF7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553A01D20AFC4EC0003BF7B /* ViewController.swift */; };
+		E553A02120AFC4EC0003BF7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E553A01F20AFC4EC0003BF7B /* Main.storyboard */; };
+		E553A02420AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E553A02220AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodeld */; };
+		E553A02620AFC4EC0003BF7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E553A02520AFC4EC0003BF7B /* Assets.xcassets */; };
+		E553A02920AFC4EC0003BF7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E553A02720AFC4EC0003BF7B /* LaunchScreen.storyboard */; };
+		E553A03420AFC4EC0003BF7B /* Eugeniy_s_SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553A03320AFC4EC0003BF7B /* Eugeniy_s_SetTests.swift */; };
+		E553A03F20AFC4EC0003BF7B /* Eugeniy_s_SetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553A03E20AFC4EC0003BF7B /* Eugeniy_s_SetUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E553A03020AFC4EC0003BF7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E553A01020AFC4EB0003BF7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E553A01720AFC4EC0003BF7B;
+			remoteInfo = "Eugeniy's Set";
+		};
+		E553A03B20AFC4EC0003BF7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E553A01020AFC4EB0003BF7B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E553A01720AFC4EC0003BF7B;
+			remoteInfo = "Eugeniy's Set";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E553A01820AFC4EC0003BF7B /* Eugeniy's Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Eugeniy's Set.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E553A01B20AFC4EC0003BF7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E553A01D20AFC4EC0003BF7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E553A02020AFC4EC0003BF7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E553A02320AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Eugeniy_s_Set.xcdatamodel; sourceTree = "<group>"; };
+		E553A02520AFC4EC0003BF7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E553A02820AFC4EC0003BF7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E553A02A20AFC4EC0003BF7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E553A02F20AFC4EC0003BF7B /* Eugeniy's SetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Eugeniy's SetTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E553A03320AFC4EC0003BF7B /* Eugeniy_s_SetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eugeniy_s_SetTests.swift; sourceTree = "<group>"; };
+		E553A03520AFC4EC0003BF7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E553A03A20AFC4EC0003BF7B /* Eugeniy's SetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Eugeniy's SetUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E553A03E20AFC4EC0003BF7B /* Eugeniy_s_SetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eugeniy_s_SetUITests.swift; sourceTree = "<group>"; };
+		E553A04020AFC4EC0003BF7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E553A01520AFC4EC0003BF7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E553A02C20AFC4EC0003BF7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E553A03720AFC4EC0003BF7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E553A00F20AFC4EB0003BF7B = {
+			isa = PBXGroup;
+			children = (
+				E553A01A20AFC4EC0003BF7B /* Eugeniy's Set */,
+				E553A03220AFC4EC0003BF7B /* Eugeniy's SetTests */,
+				E553A03D20AFC4EC0003BF7B /* Eugeniy's SetUITests */,
+				E553A01920AFC4EC0003BF7B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E553A01920AFC4EC0003BF7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E553A01820AFC4EC0003BF7B /* Eugeniy's Set.app */,
+				E553A02F20AFC4EC0003BF7B /* Eugeniy's SetTests.xctest */,
+				E553A03A20AFC4EC0003BF7B /* Eugeniy's SetUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E553A01A20AFC4EC0003BF7B /* Eugeniy's Set */ = {
+			isa = PBXGroup;
+			children = (
+				E553A01B20AFC4EC0003BF7B /* AppDelegate.swift */,
+				E553A01D20AFC4EC0003BF7B /* ViewController.swift */,
+				E553A01F20AFC4EC0003BF7B /* Main.storyboard */,
+				E553A02520AFC4EC0003BF7B /* Assets.xcassets */,
+				E553A02720AFC4EC0003BF7B /* LaunchScreen.storyboard */,
+				E553A02A20AFC4EC0003BF7B /* Info.plist */,
+				E553A02220AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodeld */,
+			);
+			path = "Eugeniy's Set";
+			sourceTree = "<group>";
+		};
+		E553A03220AFC4EC0003BF7B /* Eugeniy's SetTests */ = {
+			isa = PBXGroup;
+			children = (
+				E553A03320AFC4EC0003BF7B /* Eugeniy_s_SetTests.swift */,
+				E553A03520AFC4EC0003BF7B /* Info.plist */,
+			);
+			path = "Eugeniy's SetTests";
+			sourceTree = "<group>";
+		};
+		E553A03D20AFC4EC0003BF7B /* Eugeniy's SetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E553A03E20AFC4EC0003BF7B /* Eugeniy_s_SetUITests.swift */,
+				E553A04020AFC4EC0003BF7B /* Info.plist */,
+			);
+			path = "Eugeniy's SetUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E553A01720AFC4EC0003BF7B /* Eugeniy's Set */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E553A04320AFC4EC0003BF7B /* Build configuration list for PBXNativeTarget "Eugeniy's Set" */;
+			buildPhases = (
+				E553A01420AFC4EC0003BF7B /* Sources */,
+				E553A01520AFC4EC0003BF7B /* Frameworks */,
+				E553A01620AFC4EC0003BF7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Eugeniy's Set";
+			productName = "Eugeniy's Set";
+			productReference = E553A01820AFC4EC0003BF7B /* Eugeniy's Set.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E553A02E20AFC4EC0003BF7B /* Eugeniy's SetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E553A04620AFC4EC0003BF7B /* Build configuration list for PBXNativeTarget "Eugeniy's SetTests" */;
+			buildPhases = (
+				E553A02B20AFC4EC0003BF7B /* Sources */,
+				E553A02C20AFC4EC0003BF7B /* Frameworks */,
+				E553A02D20AFC4EC0003BF7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E553A03120AFC4EC0003BF7B /* PBXTargetDependency */,
+			);
+			name = "Eugeniy's SetTests";
+			productName = "Eugeniy's SetTests";
+			productReference = E553A02F20AFC4EC0003BF7B /* Eugeniy's SetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E553A03920AFC4EC0003BF7B /* Eugeniy's SetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E553A04920AFC4EC0003BF7B /* Build configuration list for PBXNativeTarget "Eugeniy's SetUITests" */;
+			buildPhases = (
+				E553A03620AFC4EC0003BF7B /* Sources */,
+				E553A03720AFC4EC0003BF7B /* Frameworks */,
+				E553A03820AFC4EC0003BF7B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E553A03C20AFC4EC0003BF7B /* PBXTargetDependency */,
+			);
+			name = "Eugeniy's SetUITests";
+			productName = "Eugeniy's SetUITests";
+			productReference = E553A03A20AFC4EC0003BF7B /* Eugeniy's SetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E553A01020AFC4EB0003BF7B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Evgeniy Polyarush";
+				TargetAttributes = {
+					E553A01720AFC4EC0003BF7B = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+					E553A02E20AFC4EC0003BF7B = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = E553A01720AFC4EC0003BF7B;
+					};
+					E553A03920AFC4EC0003BF7B = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = E553A01720AFC4EC0003BF7B;
+					};
+				};
+			};
+			buildConfigurationList = E553A01320AFC4EB0003BF7B /* Build configuration list for PBXProject "Eugeniy's Set" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E553A00F20AFC4EB0003BF7B;
+			productRefGroup = E553A01920AFC4EC0003BF7B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E553A01720AFC4EC0003BF7B /* Eugeniy's Set */,
+				E553A02E20AFC4EC0003BF7B /* Eugeniy's SetTests */,
+				E553A03920AFC4EC0003BF7B /* Eugeniy's SetUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E553A01620AFC4EC0003BF7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E553A02920AFC4EC0003BF7B /* LaunchScreen.storyboard in Resources */,
+				E553A02620AFC4EC0003BF7B /* Assets.xcassets in Resources */,
+				E553A02120AFC4EC0003BF7B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E553A02D20AFC4EC0003BF7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E553A03820AFC4EC0003BF7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E553A01420AFC4EC0003BF7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E553A01E20AFC4EC0003BF7B /* ViewController.swift in Sources */,
+				E553A01C20AFC4EC0003BF7B /* AppDelegate.swift in Sources */,
+				E553A02420AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E553A02B20AFC4EC0003BF7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E553A03420AFC4EC0003BF7B /* Eugeniy_s_SetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E553A03620AFC4EC0003BF7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E553A03F20AFC4EC0003BF7B /* Eugeniy_s_SetUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E553A03120AFC4EC0003BF7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E553A01720AFC4EC0003BF7B /* Eugeniy's Set */;
+			targetProxy = E553A03020AFC4EC0003BF7B /* PBXContainerItemProxy */;
+		};
+		E553A03C20AFC4EC0003BF7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E553A01720AFC4EC0003BF7B /* Eugeniy's Set */;
+			targetProxy = E553A03B20AFC4EC0003BF7B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E553A01F20AFC4EC0003BF7B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E553A02020AFC4EC0003BF7B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E553A02720AFC4EC0003BF7B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E553A02820AFC4EC0003BF7B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E553A04120AFC4EC0003BF7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E553A04220AFC4EC0003BF7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E553A04420AFC4EC0003BF7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Eugeniy's Set/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Projectswift.Eugeniy-s-Set";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E553A04520AFC4EC0003BF7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Eugeniy's Set/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Projectswift.Eugeniy-s-Set";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E553A04720AFC4EC0003BF7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Eugeniy's SetTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Projectswift.Eugeniy-s-SetTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Eugeniy's Set.app/Eugeniy's Set";
+			};
+			name = Debug;
+		};
+		E553A04820AFC4EC0003BF7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Eugeniy's SetTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Projectswift.Eugeniy-s-SetTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Eugeniy's Set.app/Eugeniy's Set";
+			};
+			name = Release;
+		};
+		E553A04A20AFC4EC0003BF7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Eugeniy's SetUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Projectswift.Eugeniy-s-SetUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Eugeniy's Set";
+			};
+			name = Debug;
+		};
+		E553A04B20AFC4EC0003BF7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Eugeniy's SetUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Projectswift.Eugeniy-s-SetUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Eugeniy's Set";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E553A01320AFC4EB0003BF7B /* Build configuration list for PBXProject "Eugeniy's Set" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E553A04120AFC4EC0003BF7B /* Debug */,
+				E553A04220AFC4EC0003BF7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E553A04320AFC4EC0003BF7B /* Build configuration list for PBXNativeTarget "Eugeniy's Set" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E553A04420AFC4EC0003BF7B /* Debug */,
+				E553A04520AFC4EC0003BF7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E553A04620AFC4EC0003BF7B /* Build configuration list for PBXNativeTarget "Eugeniy's SetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E553A04720AFC4EC0003BF7B /* Debug */,
+				E553A04820AFC4EC0003BF7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E553A04920AFC4EC0003BF7B /* Build configuration list for PBXNativeTarget "Eugeniy's SetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E553A04A20AFC4EC0003BF7B /* Debug */,
+				E553A04B20AFC4EC0003BF7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E553A02220AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E553A02320AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodel */,
+			);
+			currentVersion = E553A02320AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodel */;
+			path = Eugeniy_s_Set.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E553A01020AFC4EB0003BF7B /* Project object */;
+}
