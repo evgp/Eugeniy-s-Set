@@ -15,7 +15,8 @@
 		E553A02920AFC4EC0003BF7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E553A02720AFC4EC0003BF7B /* LaunchScreen.storyboard */; };
 		E553A03420AFC4EC0003BF7B /* Eugeniy_s_SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553A03320AFC4EC0003BF7B /* Eugeniy_s_SetTests.swift */; };
 		E553A03F20AFC4EC0003BF7B /* Eugeniy_s_SetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553A03E20AFC4EC0003BF7B /* Eugeniy_s_SetUITests.swift */; };
-		E553A08E20AFD9430003BF7B /* SetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553A08D20AFD9430003BF7B /* SetModel.swift */; };
+		E553A08E20AFD9430003BF7B /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = E553A08D20AFD9430003BF7B /* Card.swift */; };
+		E5A4237D20B2816200C7F26C /* gameSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4237C20B2816200C7F26C /* gameSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,8 @@
 		E553A03A20AFC4EC0003BF7B /* Eugeniy's SetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Eugeniy's SetUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E553A03E20AFC4EC0003BF7B /* Eugeniy_s_SetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eugeniy_s_SetUITests.swift; sourceTree = "<group>"; };
 		E553A04020AFC4EC0003BF7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E553A08D20AFD9430003BF7B /* SetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetModel.swift; sourceTree = "<group>"; };
+		E553A08D20AFD9430003BF7B /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		E5A4237C20B2816200C7F26C /* gameSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +105,8 @@
 			children = (
 				E553A01D20AFC4EC0003BF7B /* ViewController.swift */,
 				E553A01F20AFC4EC0003BF7B /* Main.storyboard */,
-				E553A08D20AFD9430003BF7B /* SetModel.swift */,
+				E553A08D20AFD9430003BF7B /* Card.swift */,
+				E5A4237C20B2816200C7F26C /* gameSet.swift */,
 				E553A08C20AFC7280003BF7B /* SupportingFiles */,
 				E553A02A20AFC4EC0003BF7B /* Info.plist */,
 				E553A02220AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodeld */,
@@ -272,7 +275,8 @@
 			files = (
 				E553A01E20AFC4EC0003BF7B /* ViewController.swift in Sources */,
 				E553A01C20AFC4EC0003BF7B /* AppDelegate.swift in Sources */,
-				E553A08E20AFD9430003BF7B /* SetModel.swift in Sources */,
+				E5A4237D20B2816200C7F26C /* gameSet.swift in Sources */,
+				E553A08E20AFD9430003BF7B /* Card.swift in Sources */,
 				E553A02420AFC4EC0003BF7B /* Eugeniy_s_Set.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
