@@ -18,6 +18,7 @@ import Foundation
  3^4 = 81 different cards
  */
 
+
 struct Card: Equatable {
     
     var number = 0
