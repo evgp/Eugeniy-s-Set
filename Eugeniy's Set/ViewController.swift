@@ -17,8 +17,8 @@ class ViewController: UIViewController {
         didSet {
             //deal cards per button
             for index in 12...23 {
-                cardButtons[index].backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-                cardButtons[index].setTitle("", for: UIControlState.normal)
+                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+                button.setTitle("", for: UIControlState.normal)
             }
         }
     }
@@ -33,50 +33,54 @@ class ViewController: UIViewController {
             sender.layer.borderWidth = 3.0
             sender.layer.borderColor = UIColor.blue.cgColor
         }
-        let title = sender.title(for: UIControlState.normal)
-        sender.setAttributedTitle(colorize(0, title!), for: UIControlState.normal)
+//        let title = sender.title(for: UIControlState.normal)
+//        sender.setAttributedTitle(colorize(0, title!), for: UIControlState.normal)
 
     }
     
-    private func colorize(_ colorCode: Int = 0, _ symbol: String) -> NSAttributedString {
+    private func colorize(_ color: Int, _ symbol: String) -> NSAttributedString {
         let attributes: [NSAttributedStringKey: Any] = [
             .strokeWidth : -8.0,
-            .strokeColor : #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            .strokeColor : distinguisherNumber[color]
         ]
         return NSAttributedString(string: symbol, attributes: attributes)
     }
-    
+    private var distinguisherSymbol = "▲●■"
+    private var distinguisherShading = [#colorLiteral(red: 0.4229060016, green: 0.4388156243, blue: 0.770421794, alpha: 1),#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1),#colorLiteral(red: 0.7130310959, green: 0.1157009136, blue: 0.770421794, alpha: 1)]
+    private var distinguisherBackground = [#colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1),#colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1),#colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1)]
+    private var distinguisherNumber = [#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1),#colorLiteral(red: 0.4508578777, green: 0.9882974029, blue: 0.8376303315, alpha: 1)]              //stroke
     
     func deal(_ cards: Int = 0) -> Bool {
         if cards == 0 {
-            for index in 0...(cardButtons.count-1) {
-                if cardButtons[index].backgroundColor != #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) {
+            for index in cardButtons.indices {
+                let button = cardButtons[index]
+                if button.backgroundColor != #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) {
                     let randomCardFromDeck = newGame.cards[(newGame.cards.count-1).arc4random]
-//                    switch randomCardFromDeck.number {
-//                    case 1:
-//                    case 2:
-//                    case 3:
-//                    default: exit(-1)
-//                    }
+                    switch randomCardFromDeck.number {
+                    case 1: button.setAttributedTitle({ colorize(randomCardFromDeck.number, distinguisherSymbol[randomCardFromDeck.symbol]) }, for: UIControlState.normal)
+                    case 2:
+                    case 3:
+                    default: exit(-1)
+                    }
                     
                     switch randomCardFromDeck.color {
-                    case 1: cardButtons[index].backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
-                    case 2: cardButtons[index].backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
-                    case 3: cardButtons[index].backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+                    case 1: button.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+                    case 2: button.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+                    case 3: button.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
                     default: exit(-1)
                     }
                     
                     switch randomCardFromDeck.shading {
-                    case 1: cardButtons[index].setTitleColor(#colorLiteral(red: 0.4229060016, green: 0.4388156243, blue: 0.770421794, alpha: 1), for: UIControlState.normal)
-                    case 2: cardButtons[index].setTitleColor(#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), for: UIControlState.normal)
-                    case 3: cardButtons[index].setTitleColor(#colorLiteral(red: 0.7130310959, green: 0.1157009136, blue: 0.770421794, alpha: 1), for: UIControlState.normal)
+                    case 1: button.setTitleColor(#colorLiteral(red: 0.4229060016, green: 0.4388156243, blue: 0.770421794, alpha: 1), for: UIControlState.normal)
+                    case 2: button.setTitleColor(#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), for: UIControlState.normal)
+                    case 3: button.setTitleColor(#colorLiteral(red: 0.7130310959, green: 0.1157009136, blue: 0.770421794, alpha: 1), for: UIControlState.normal)
                     default: exit(-1)
                     }
                     
                     switch randomCardFromDeck.symbol {
-                    case 1: cardButtons[index].setTitle("▲", for: UIControlState.normal)
-                    case 2: cardButtons[index].setTitle("●", for: UIControlState.normal)
-                    case 3: cardButtons[index].setTitle("■", for: UIControlState.normal)
+                    case 1: button.setTitle("▲", for: UIControlState.normal)
+                    case 2: button.setTitle("●", for: UIControlState.normal)
+                    case 3: button.setTitle("■", for: UIControlState.normal)
                     default: exit(-1)
                     }
                 }
