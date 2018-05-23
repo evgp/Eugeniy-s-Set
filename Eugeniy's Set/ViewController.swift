@@ -10,6 +10,28 @@ import UIKit
 
 class ViewController: UIViewController {
     
+//    enum symbol: Int {
+//        case triangle, square, circle
+//        func value() -> Character {
+//            switch self {
+//            case .triangle: return "▲"
+//            case .circle: return "●"
+//            case .square: return "■"
+//            }
+//        }
+//    }
+//
+//    enum background: Int {
+//        case first, second, third
+//        func value() -> UIColor {
+//            switch self {
+//            case .first: return UIColor(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+//            case .second: return UIColor(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+//            case .third: return UIColor(red: 0, green: 0.5603182912, blue: 0, alpha: 1)
+//            }
+//        }
+//    }
+    
     private var newGame = gameSet()
     private var selectedCards = [Card]()
     
@@ -17,6 +39,7 @@ class ViewController: UIViewController {
         didSet {
             //deal cards per button
             for index in 12...23 {
+                let button = cardButtons[index]
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
                 button.setTitle("", for: UIControlState.normal)
             }
@@ -38,10 +61,10 @@ class ViewController: UIViewController {
 
     }
     
-    private func colorize(_ color: Int, _ symbol: String) -> NSAttributedString {
+    private func numberize(by color: UIColor, _ symbol: String) -> NSAttributedString {
         let attributes: [NSAttributedStringKey: Any] = [
             .strokeWidth : -8.0,
-            .strokeColor : distinguisherNumber[color]
+            .strokeColor : color
         ]
         return NSAttributedString(string: symbol, attributes: attributes)
     }
@@ -55,13 +78,13 @@ class ViewController: UIViewController {
             for index in cardButtons.indices {
                 let button = cardButtons[index]
                 if button.backgroundColor != #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) {
-                    let randomCardFromDeck = newGame.cards[(newGame.cards.count-1).arc4random]
-                    switch randomCardFromDeck.number {
-                    case 1: button.setAttributedTitle({ colorize(randomCardFromDeck.number, distinguisherSymbol[randomCardFromDeck.symbol]) }, for: UIControlState.normal)
-                    case 2:
-                    case 3:
-                    default: exit(-1)
-                    }
+                    let randomCardFromDeck = newGame.cards[(newGame.cards.count-1).random]
+//                    switch randomCardFromDeck.number {
+//                    case 1: button.setAttributedTitle({ colorize(randomCardFromDeck.number, distinguisherSymbol[randomCardFromDeck.symbol]) }, for: UIControlState.normal)
+//                    case 2:
+//                    case 3:
+//                    default: exit(-1)
+//                    }
                     
                     switch randomCardFromDeck.color {
                     case 1: button.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
@@ -107,8 +130,34 @@ class ViewController: UIViewController {
 
 // let x = 5.arc4random. - extansion for Int, 5 is the "self"
 extension Int {
-    var arc4random: Int {
+    var random: Int {
         return Int(arc4random_uniform(UInt32(self)))
     }
+    var background: UIColor {
+        switch self {
+        case 1: return #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        case 2: return #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        case 3: return #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        default: return #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        }
+    }
+    var shading: UIColor {
+        switch self {
+        case 1: return UIColor(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        case 2: return UIColor(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        case 3: return UIColor(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        default: return #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        }
+    }
+    
+    var symbol: String {
+        switch self {
+        case 1: return "▲"
+        case 2: return"●"
+        case 3: return"■"
+        default: return "n/a"
+        }
+    }
+    
 }
 
