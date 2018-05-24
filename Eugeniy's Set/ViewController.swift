@@ -36,10 +36,11 @@ class ViewController: UIViewController {
         
     }
     
-    private func numberize(by color: UIColor, _ symbol: String) -> NSAttributedString {
+    private func numberize(by color: UIColor, _ fColor: UIColor, _ symbol: String) -> NSAttributedString {
         let attributes: [NSAttributedStringKey: Any] = [
             .strokeWidth : -8.0,
-            .strokeColor : color
+            .strokeColor : color,
+            .foregroundColor : fColor
         ]
         return NSAttributedString(string: symbol, attributes: attributes)
     }
@@ -53,8 +54,8 @@ class ViewController: UIViewController {
                     let randomCardFromDeck = newGame.cards[(newGame.cards.count-1).random]
                     button.backgroundColor = randomCardFromDeck.color.background
                     button.setTitle(randomCardFromDeck.symbol.symbol, for: UIControlState.normal)
-                    button.setTitleColor(randomCardFromDeck.shading.color, for: UIControlState.normal)
-                    button.setAttributedTitle(numberize(by: randomCardFromDeck.number.stroke, randomCardFromDeck.symbol.symbol), for: UIControlState.normal)
+//                    button.setTitleColor(randomCardFromDeck.shading.color, for: UIControlState.normal)
+                    button.setAttributedTitle(numberize(by: randomCardFromDeck.number.stroke, randomCardFromDeck.shading.color, randomCardFromDeck.symbol.symbol), for: UIControlState.normal)
                 }
             }
         } else {
