@@ -21,17 +21,6 @@ import Foundation
 struct Card: Equatable {
   
 
-//
-
-//
-//    enum shade: Int {
-//        case first, second, third
-//    }
-//
-//    enum number: Int {
-//        case one, two, three
-//    }
-//
     var number = 0      //symbol stroke
     var symbol = 0
     var shading = 0     //symbol color

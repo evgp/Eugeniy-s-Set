@@ -54,7 +54,6 @@ class ViewController: UIViewController {
                     let randomCardFromDeck = newGame.cards[(newGame.cards.count-1).random]
                     button.backgroundColor = randomCardFromDeck.color.background
                     button.setTitle(randomCardFromDeck.symbol.symbol, for: UIControlState.normal)
-//                    button.setTitleColor(randomCardFromDeck.shading.color, for: UIControlState.normal)
                     button.setAttributedTitle(numberize(by: randomCardFromDeck.number.stroke, randomCardFromDeck.shading.color, randomCardFromDeck.symbol.symbol), for: UIControlState.normal)
                 }
             }
