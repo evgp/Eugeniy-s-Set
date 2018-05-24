@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     
     private var newGame = gameSet()
-    private var selectedCards = [Card]()
+//    private var selectedCards = [Card]()
     
     @IBOutlet var cardButtons: [UIButton]! {
         didSet {
@@ -21,6 +21,7 @@ class ViewController: UIViewController {
                 let button = cardButtons[index]
                 button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
                 button.setTitle("", for: UIControlState.normal)
+            
             }
            _ = deal()
         }
@@ -28,19 +29,27 @@ class ViewController: UIViewController {
     
     
     @IBAction func touchCard(_ sender: UIButton) {
-
-        if sender.backgroundColor != #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) {
-            sender.layer.borderWidth = 3.0
-            sender.layer.borderColor = UIColor.blue.cgColor
+        newGame.chooseCard(at: cardButtons.index(of: sender)!)
+        updateView()
+    }
+    
+    func updateView() {
+        for index in newGame.cardField.keys {
+            if (newGame.cardField[index]?.isSelected)! {
+                cardButtons[index].layer.borderWidth = 3.0
+                cardButtons[index].layer.borderColor = UIColor.blue.cgColor
+            } else {
+                cardButtons[index].layer.borderWidth = 1.0
+                cardButtons[index].layer.borderColor = UIColor.clear.cgColor
+            }
         }
-        
     }
     
-
+    @IBOutlet weak var cardsLeft: UILabel!
+    
     @IBAction func dealMore(_ sender: UIButton) {
-        _ = deal()
+        _ = deal(3)
     }
-    
     
     private func numberize(by color: UIColor, _ fColor: UIColor, _ symbol: String) -> NSAttributedString {
         let attributes: [NSAttributedStringKey: Any] = [
@@ -50,26 +59,22 @@ class ViewController: UIViewController {
         ]
         return NSAttributedString(string: symbol, attributes: attributes)
     }
-
     
     func deal(_ cards: Int = 0) -> Bool {
-        if cards == 0 {
             for index in cardButtons.indices {
                 let button = cardButtons[index]
                 if button.backgroundColor != #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) {
                     let randomCardIndex = (newGame.cards.count-1).random
                     let randomCardFromDeck = newGame.cards[randomCardIndex]
+                    
+                    newGame.cardField[index] = randomCardFromDeck
                     newGame.cards.remove(at: randomCardIndex)
+                    
                     button.backgroundColor = randomCardFromDeck.color.background
                     button.setTitle(randomCardFromDeck.symbol.symbol, for: UIControlState.normal)
                     button.setAttributedTitle(numberize(by: randomCardFromDeck.number.stroke, randomCardFromDeck.shading.color, randomCardFromDeck.symbol.symbol), for: UIControlState.normal)
-                    
                 }
             }
-        } else {
-            
-        }
-        
         return false
     }
     
@@ -82,7 +87,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 }
 

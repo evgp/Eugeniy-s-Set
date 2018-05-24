@@ -10,7 +10,12 @@ import Foundation
 
 struct gameSet {
     var cards = [Card]()
+    var cardField = [Int:Card]()
     
+    mutating func chooseCard(at index: Int) {
+        let selected = cardField[index]?.isSelected
+        cardField[index]?.isSelected = !selected!
+    }
     
     
     init () {
@@ -18,12 +23,12 @@ struct gameSet {
             for sym in 1...3 {
                 for sha in 1...3 {
                     for col in 1...3 {
-                      let newCard = Card(number: num, symbol: sym, shading: sha, color: col, isSelected: false, isSet: false)
-                        cards += [newCard]
+                        cards += [Card(number: num, symbol: sym, shading: sha, color: col, isSelected: false, isSet: false)]
                     }
                 }
             }
         }
     }
-    
+
 }
+

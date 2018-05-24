@@ -310,6 +310,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="cardsLeft" destination="Vod-zu-3gy" id="upC-f5-fEZ"/>
                         <outletCollection property="cardButtons" destination="jLw-z8-XPQ" collectionClass="NSMutableArray" id="e9x-H4-bbV"/>
                         <outletCollection property="cardButtons" destination="NEZ-q3-wCe" collectionClass="NSMutableArray" id="1Lw-NE-ISQ"/>
                         <outletCollection property="cardButtons" destination="EpQ-vV-ZE2" collectionClass="NSMutableArray" id="b1F-J5-eoV"/>
