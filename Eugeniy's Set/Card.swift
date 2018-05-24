@@ -32,10 +32,10 @@ struct Card: Equatable {
 //        case one, two, three
 //    }
 //
-    var number = 0
+    var number = 0      //symbol stroke
     var symbol = 0
-    var shading = 0
-    var color = 0
+    var shading = 0     //symbol color
+    var color = 0   //card background color
     
     var isSelected = false
     var isSet = false
