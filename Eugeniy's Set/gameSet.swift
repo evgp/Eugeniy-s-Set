@@ -15,6 +15,10 @@ struct gameSet {
     mutating func chooseCard(at index: Int) {
         let selected = cardField[index]?.isSelected
         cardField[index]?.isSelected = !selected!
+        
+//        cardField.forEach() {
+//            $0.key
+//        }
     }
     
     

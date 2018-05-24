@@ -34,13 +34,11 @@ class ViewController: UIViewController {
     }
     
     func updateView() {
-        for index in newGame.cardField.keys {
-            if (newGame.cardField[index]?.isSelected)! {
-                cardButtons[index].layer.borderWidth = 3.0
-                cardButtons[index].layer.borderColor = UIColor.blue.cgColor
+        newGame.cardField.forEach() {
+            if $0.value.isSelected {
+                cardButtons[$0.key].selectCard()
             } else {
-                cardButtons[index].layer.borderWidth = 1.0
-                cardButtons[index].layer.borderColor = UIColor.clear.cgColor
+                cardButtons[$0.key].noSelectCard()
             }
         }
     }
@@ -91,6 +89,17 @@ class ViewController: UIViewController {
 }
 
 // let x = 5.arc4random. - extansion for Int, 5 is the "self"
+extension UIButton {
+    func selectCard() {
+        self.layer.borderWidth = 2.5
+        self.layer.borderColor = UIColor.blue.cgColor
+    }
+    func noSelectCard() {
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor.clear.cgColor
+    }
+}
+
 extension Int {
     var random: Int {
         return Int(arc4random_uniform(UInt32(self)))
