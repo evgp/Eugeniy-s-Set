@@ -36,6 +36,12 @@ class ViewController: UIViewController {
         
     }
     
+
+    @IBAction func dealMore(_ sender: UIButton) {
+        _ = deal()
+    }
+    
+    
     private func numberize(by color: UIColor, _ fColor: UIColor, _ symbol: String) -> NSAttributedString {
         let attributes: [NSAttributedStringKey: Any] = [
             .strokeWidth : -8.0,
@@ -51,10 +57,13 @@ class ViewController: UIViewController {
             for index in cardButtons.indices {
                 let button = cardButtons[index]
                 if button.backgroundColor != #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) {
-                    let randomCardFromDeck = newGame.cards[(newGame.cards.count-1).random]
+                    let randomCardIndex = (newGame.cards.count-1).random
+                    let randomCardFromDeck = newGame.cards[randomCardIndex]
+                    newGame.cards.remove(at: randomCardIndex)
                     button.backgroundColor = randomCardFromDeck.color.background
                     button.setTitle(randomCardFromDeck.symbol.symbol, for: UIControlState.normal)
                     button.setAttributedTitle(numberize(by: randomCardFromDeck.number.stroke, randomCardFromDeck.shading.color, randomCardFromDeck.symbol.symbol), for: UIControlState.normal)
+                    
                 }
             }
         } else {

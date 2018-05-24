@@ -9,7 +9,7 @@
 import Foundation
 
 struct gameSet {
-    private(set) var cards = [Card]()
+    var cards = [Card]()
     
     
     
