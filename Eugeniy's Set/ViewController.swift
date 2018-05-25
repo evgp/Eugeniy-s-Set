@@ -16,14 +16,15 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]! {
         didSet {
-            //deal cards per button
-            for index in 12...23 {
-                let button = cardButtons[index]
-                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-                button.setTitle("", for: UIControlState.normal)
-            
-            }
-           _ = deal()
+//            //deal cards per button
+//            for index in 12...23 {
+//                let button = cardButtons[index]
+//                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+//                button.setTitle("", for: UIControlState.normal)
+//            
+//            }
+           _ = deal(24)
+            updateView()
         }
     }
     
@@ -41,12 +42,20 @@ class ViewController: UIViewController {
                 cardButtons[$0.key].noSelectCard()
             }
         }
+        
+        cardButtons.forEach() {
+                $0.backgroundColor = newGame.cardField[cardButtons.index(of: $0)!]!.color.background
+                $0.setTitle(newGame.cardField[cardButtons.index(of: $0)!]!.symbol.symbol, for: UIControlState.normal)
+                $0.setAttributedTitle(
+                    numberize(by: (newGame.cardField[cardButtons.index(of: $0)!]!.number.stroke), (newGame.cardField[cardButtons.index(of: $0)!]!.shading.color), (newGame.cardField[cardButtons.index(of: $0)!]!.symbol.symbol)),
+                    for: UIControlState.normal)
+        }
     }
     
     @IBOutlet weak var cardsLeft: UILabel!
     
     @IBAction func dealMore(_ sender: UIButton) {
-        _ = deal(3)
+            _ = deal(3)
     }
     
     private func numberize(by color: UIColor, _ fColor: UIColor, _ symbol: String) -> NSAttributedString {
@@ -58,22 +67,24 @@ class ViewController: UIViewController {
         return NSAttributedString(string: symbol, attributes: attributes)
     }
     
-    func deal(_ cards: Int = 0) -> Bool {
-            for index in cardButtons.indices {
-                let button = cardButtons[index]
-                if button.activeCard {
-                    let randomCardIndex = (newGame.cards.count-1).random
-                    let randomCardFromDeck = newGame.cards[randomCardIndex]
-                    
-                    newGame.cardField[index] = randomCardFromDeck
-                    newGame.cards.remove(at: randomCardIndex)
-                    
-                    button.backgroundColor = randomCardFromDeck.color.background
-                    button.setTitle(randomCardFromDeck.symbol.symbol, for: UIControlState.normal)
-                    button.setAttributedTitle(numberize(by: randomCardFromDeck.number.stroke, randomCardFromDeck.shading.color, randomCardFromDeck.symbol.symbol), for: UIControlState.normal)
-                }
-            }
-        return false
+    func deal(_ cardCount: Int) {
+        var cc = cardCount
+        while cc != 0 {
+            let randomCard = newGame.cards[(newGame.cards.count-1).random]
+            newGame.cardField[newGame.cardField.count+1] = randomCard
+            newGame.cards.remove(at: newGame.cards.index(of: randomCard)!)
+            cc -= 1
+        }
+        updateView()
+//
+//
+//            for button in cardButtons {
+//
+//                    let randomCardIndex = (newGame.cards.count-1).random
+//                    let randomCardFromDeck = newGame.cards[randomCardIndex]
+//                    newGame.cardField[cardButtons.index(of: button)!] = randomCardFromDeck
+//                    newGame.cards.remove(at: randomCardIndex)
+//            }
     }
     
 }
@@ -96,8 +107,8 @@ extension UIButton {
         self.setTitle("", for: UIControlState.normal)
     }
     func activateCard() {
-        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        self.setTitle("", for: UIControlState.normal)
+//        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+//        self.setTitle("", for: UIControlState.normal)
     }
 }
 
