@@ -5,7 +5,10 @@
 //  Created by Evgeniy Polyarush on 19/05/2018.
 //  Copyright © 2018 Evgeniy Polyarush. All rights reserved.
 //
-
+//They all have the same number or have three different numbers.
+//They all have the same symbol or have three different symbols.
+//They all have the same shading or have three different shadings.
+//They all have the same color or have three different colors.
 import Foundation
 
 /**
@@ -19,7 +22,32 @@ import Foundation
  */
 
 struct Card: Equatable {
-  
+    static func == (lhs: Card, rhs: Card) -> Bool {
+       return (lhs.color == rhs.color &&
+        lhs.number == rhs.number &&
+        lhs.shading == rhs.shading &&
+        lhs.symbol == rhs.symbol) ||
+        (lhs.color == rhs.color &&
+        lhs.number != rhs.number &&
+        lhs.shading != rhs.shading &&
+        lhs.symbol != rhs.symbol) ||
+        (lhs.color != rhs.color &&
+        lhs.number == rhs.number &&
+        lhs.shading != rhs.shading &&
+        lhs.symbol != rhs.symbol) ||
+        (lhs.color != rhs.color &&
+        lhs.number != rhs.number &&
+        lhs.shading == rhs.shading &&
+        lhs.symbol != rhs.symbol) ||
+        (lhs.color != rhs.color &&
+        lhs.number != rhs.number &&
+        lhs.shading != rhs.shading &&
+        lhs.symbol == rhs.symbol) ||
+        (lhs.color != rhs.color &&
+        lhs.number != rhs.number &&
+        lhs.shading != rhs.shading &&
+        lhs.symbol != rhs.symbol)
+    }
 
     var number = 0      //symbol stroke
     var symbol = 0

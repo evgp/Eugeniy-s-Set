@@ -61,7 +61,7 @@ class ViewController: UIViewController {
     func deal(_ cards: Int = 0) -> Bool {
             for index in cardButtons.indices {
                 let button = cardButtons[index]
-                if button.backgroundColor != #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) {
+                if button.activeCard {
                     let randomCardIndex = (newGame.cards.count-1).random
                     let randomCardFromDeck = newGame.cards[randomCardIndex]
                     
@@ -76,20 +76,13 @@ class ViewController: UIViewController {
         return false
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 }
 
-// let x = 5.arc4random. - extansion for Int, 5 is the "self"
 extension UIButton {
+    var activeCard: Bool {
+       return self.backgroundColor == #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) ? false : true
+    }
+    
     func selectCard() {
         self.layer.borderWidth = 2.5
         self.layer.borderColor = UIColor.blue.cgColor
@@ -97,6 +90,14 @@ extension UIButton {
     func noSelectCard() {
         self.layer.borderWidth = 1.0
         self.layer.borderColor = UIColor.clear.cgColor
+    }
+    func deactivateCard() {
+        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        self.setTitle("", for: UIControlState.normal)
+    }
+    func activateCard() {
+        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        self.setTitle("", for: UIControlState.normal)
     }
 }
 
