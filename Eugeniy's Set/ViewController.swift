@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 //                button.setTitle("", for: UIControlState.normal)
 //            
 //            }
-           _ = deal(24)
+           deal(24)
             updateView()
         }
     }
@@ -43,19 +43,19 @@ class ViewController: UIViewController {
             }
         }
         
-        cardButtons.forEach() {
-                $0.backgroundColor = newGame.cardField[cardButtons.index(of: $0)!]!.color.background
-                $0.setTitle(newGame.cardField[cardButtons.index(of: $0)!]!.symbol.symbol, for: UIControlState.normal)
-                $0.setAttributedTitle(
-                    numberize(by: (newGame.cardField[cardButtons.index(of: $0)!]!.number.stroke), (newGame.cardField[cardButtons.index(of: $0)!]!.shading.color), (newGame.cardField[cardButtons.index(of: $0)!]!.symbol.symbol)),
-                    for: UIControlState.normal)
+        newGame.cardField.forEach() {
+            cardButtons[$0.key].backgroundColor = $0.value.color.background
+            cardButtons[$0.key].setTitle($0.value.symbol.symbol, for: UIControlState.normal)
+            cardButtons[$0.key].setAttributedTitle(
+                numberize(by: $0.value.number.stroke, $0.value.shading.color, $0.value.symbol.symbol),
+                for: UIControlState.normal)
         }
     }
     
     @IBOutlet weak var cardsLeft: UILabel!
     
     @IBAction func dealMore(_ sender: UIButton) {
-            _ = deal(3)
+            deal(3)
     }
     
     private func numberize(by color: UIColor, _ fColor: UIColor, _ symbol: String) -> NSAttributedString {
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         var cc = cardCount
         while cc != 0 {
             let randomCard = newGame.cards[(newGame.cards.count-1).random]
-            newGame.cardField[newGame.cardField.count+1] = randomCard
+            newGame.cardField[newGame.cardField.count] = randomCard
             newGame.cards.remove(at: newGame.cards.index(of: randomCard)!)
             cc -= 1
         }
@@ -146,7 +146,7 @@ extension Int {
         case 1: return "▲"
         case 2: return"●"
         case 3: return"■"
-        default: return "!!!"
+        default: return "!"
         }
     }
     
