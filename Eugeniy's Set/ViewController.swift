@@ -46,17 +46,28 @@ class ViewController: UIViewController {
             }
             
             if $0.value.isSet {
-                cardButtons[$0.key].deactivateCard()
+                cardButtons[$0.key].deactivateCard(numberize(by: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), ""))
             }
         }
         
-        newGame.cardField.forEach() {
-            cardButtons[$0.key].backgroundColor = $0.value.color.background
-            cardButtons[$0.key].setTitle($0.value.symbol.symbol, for: UIControlState.normal)
-            cardButtons[$0.key].setAttributedTitle(
-                numberize(by: $0.value.number.stroke, $0.value.shading.color, $0.value.symbol.symbol),
-                for: UIControlState.normal)
+        cardButtons.forEach() {
+            let index = cardButtons.index(of: $0)!
+            if !(newGame.cardField[index]!.isSet) {
+                $0.backgroundColor = newGame.cardField[index]!.color.background
+                $0.setTitle(newGame.cardField[index]!.symbol.symbol, for: UIControlState.normal)
+                $0.setAttributedTitle(
+                    numberize(by: newGame.cardField[index]!.number.stroke, newGame.cardField[index]!.shading.color, newGame.cardField[index]!.symbol.symbol),
+                    for: UIControlState.normal)
+            }
         }
+        
+//        newGame.cardField.forEach() {
+//            cardButtons[$0.key].backgroundColor = $0.value.color.background
+//            cardButtons[$0.key].setTitle($0.value.symbol.symbol, for: UIControlState.normal)
+//            cardButtons[$0.key].setAttributedTitle(
+//                numberize(by: $0.value.number.stroke, $0.value.shading.color, $0.value.symbol.symbol),
+//                for: UIControlState.normal)
+//        }
         
         if let _ = scoreLabel {
             scoreLabel.text = "Score: \(newGame.score)"
@@ -106,9 +117,10 @@ extension UIButton {
         self.layer.borderWidth = 1.0
         self.layer.borderColor = UIColor.clear.cgColor
     }
-    func deactivateCard() {
+    func deactivateCard(_ nsaString: NSAttributedString) {
         self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         self.setTitle("", for: UIControlState.normal)
+        self.setAttributedTitle(nsaString, for: UIControlState.normal)
     }
     func activateCard() {
 //        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
