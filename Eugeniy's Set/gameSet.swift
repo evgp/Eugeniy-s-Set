@@ -18,16 +18,32 @@ import Foundation
 struct gameSet {
     var cards = [Card]()
     var cardField = [Int:Card]()
-    private var choosenCards = [Card]()
+    private var choosenCards = [Int:Card]()
     
     mutating func chooseCard(at index: Int) {
-        let selected = cardField[index]?.isSelected
-        cardField[index]?.isSelected = !selected!
-        
-        
-
+        if choosenCards.count >= 2 {
+            choosenCards[index] = cardField[index]
+            if   (choosenCards[1] == choosenCards[2]) && (choosenCards[0] == choosenCards[1]) && ((choosenCards[0] == choosenCards[2])) { 
+                choosenCards.forEach() {
+                    let key = $0.key
+                    cardField[key]?.isSet = true
+                    cardField[key]?.isSelected = false
+                    choosenCards.removeAll()
+                }
+            } else {
+                choosenCards.forEach() {
+                    let key = $0.key
+                    cardField[key]?.isSelected = false
+                    choosenCards.removeAll()
+                }
+            }
+        } else {
+            if (cardField[index]?.isSelected)! { cardField[index]?.isSelected = false} else {
+                choosenCards[index] = cardField[index]
+                cardField[index]?.isSelected = true
+            }
+        }
     }
-
     
     init () {
         for num in 1...3 {

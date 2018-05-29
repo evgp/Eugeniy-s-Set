@@ -41,6 +41,10 @@ class ViewController: UIViewController {
             } else {
                 cardButtons[$0.key].noSelectCard()
             }
+            
+            if $0.value.isSet {
+                cardButtons[$0.key].deactivateCard()
+            }
         }
         
         newGame.cardField.forEach() {
@@ -76,15 +80,6 @@ class ViewController: UIViewController {
             cc -= 1
         }
         updateView()
-//
-//
-//            for button in cardButtons {
-//
-//                    let randomCardIndex = (newGame.cards.count-1).random
-//                    let randomCardFromDeck = newGame.cards[randomCardIndex]
-//                    newGame.cardField[cardButtons.index(of: button)!] = randomCardFromDeck
-//                    newGame.cards.remove(at: randomCardIndex)
-//            }
     }
     
 }
