@@ -14,6 +14,9 @@ class ViewController: UIViewController {
     private var newGame = gameSet()
 //    private var selectedCards = [Card]()
     
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     @IBOutlet var cardButtons: [UIButton]! {
         didSet {
 //            //deal cards per button
@@ -54,6 +57,12 @@ class ViewController: UIViewController {
                 numberize(by: $0.value.number.stroke, $0.value.shading.color, $0.value.symbol.symbol),
                 for: UIControlState.normal)
         }
+        
+        if let _ = scoreLabel {
+            scoreLabel.text = "Score: \(newGame.score)"
+        }
+
+
     }
     
     @IBOutlet weak var cardsLeft: UILabel!

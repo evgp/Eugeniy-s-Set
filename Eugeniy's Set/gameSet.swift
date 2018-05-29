@@ -18,18 +18,20 @@ import Foundation
 struct gameSet {
     var cards = [Card]()
     var cardField = [Int:Card]()
+    var score = 0
     private var choosenCards = [Int:Card]()
     
     mutating func chooseCard(at index: Int) {
         if choosenCards.count >= 2 {
             choosenCards[index] = cardField[index]
-            if   (choosenCards[1] == choosenCards[2]) && (choosenCards[0] == choosenCards[1]) && ((choosenCards[0] == choosenCards[2])) { 
+            if  compareCards(choosenCards)  {
                 choosenCards.forEach() {
                     let key = $0.key
                     cardField[key]?.isSet = true
                     cardField[key]?.isSelected = false
                     choosenCards.removeAll()
                 }
+                score += 1
             } else {
                 choosenCards.forEach() {
                     let key = $0.key
@@ -43,6 +45,18 @@ struct gameSet {
                 cardField[index]?.isSelected = true
             }
         }
+    }
+    
+    private func compareCards(_ choosenCards: Dictionary<Int, Card>) -> Bool {
+        if choosenCards.count > 3 { exit(-1) }
+        var valuesArray = [Card]()
+        for (key, _) in choosenCards {
+            valuesArray.append(choosenCards[key]!)
+        }
+        if  (valuesArray[1] == valuesArray[2]) && (valuesArray[0] == valuesArray[1]) && ((valuesArray[0] == valuesArray[2])) {
+            return true
+        } else { return false }
+        
     }
     
     init () {
