@@ -22,7 +22,7 @@ struct gameSet {
     private var choosenCards = [Int:Card]()
     
     mutating func chooseCard(at index: Int) {
-        if choosenCards.count >= 2 {
+        if (choosenCards.count >= 2) && !choosenCards.contains() {$0.key == index} {
             choosenCards[index] = cardField[index]
             if  compareCards(choosenCards)  {
                 choosenCards.forEach() {
@@ -40,7 +40,10 @@ struct gameSet {
                 }
             }
         } else {
-            if (cardField[index]?.isSelected)! { cardField[index]?.isSelected = false} else {
+            if (cardField[index]?.isSelected)! {
+                cardField[index]?.isSelected = false
+                choosenCards.removeValue(forKey: index)
+            } else {
                 choosenCards[index] = cardField[index]
                 cardField[index]?.isSelected = true
             }

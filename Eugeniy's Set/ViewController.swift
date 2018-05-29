@@ -9,32 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     
     private var newGame = gameSet()
-//    private var selectedCards = [Card]()
+    //    private var selectedCards = [Card]()
     
     
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBOutlet var cardButtons: [UIButton]! {
         didSet {
-//            //deal cards per button
-//            for index in 12...23 {
-//                let button = cardButtons[index]
-//                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-//                button.setTitle("", for: UIControlState.normal)
-//            
-//            }
-           deal(24)
+            //            //deal cards per button
+            //            for index in 12...23 {
+            //                let button = cardButtons[index]
+            //                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            //                button.setTitle("", for: UIControlState.normal)
+            //
+            //            }
+            deal(24)
             updateView()
         }
     }
     
     
     @IBAction func touchCard(_ sender: UIButton) {
-        newGame.chooseCard(at: cardButtons.index(of: sender)!)
-        updateView()
+        if sender.activeCard {
+            newGame.chooseCard(at: cardButtons.index(of: sender)!)
+            updateView()
+        }
     }
     
     func updateView() {
@@ -61,25 +63,25 @@ class ViewController: UIViewController {
             }
         }
         
-//        newGame.cardField.forEach() {
-//            cardButtons[$0.key].backgroundColor = $0.value.color.background
-//            cardButtons[$0.key].setTitle($0.value.symbol.symbol, for: UIControlState.normal)
-//            cardButtons[$0.key].setAttributedTitle(
-//                numberize(by: $0.value.number.stroke, $0.value.shading.color, $0.value.symbol.symbol),
-//                for: UIControlState.normal)
-//        }
+        //        newGame.cardField.forEach() {
+        //            cardButtons[$0.key].backgroundColor = $0.value.color.background
+        //            cardButtons[$0.key].setTitle($0.value.symbol.symbol, for: UIControlState.normal)
+        //            cardButtons[$0.key].setAttributedTitle(
+        //                numberize(by: $0.value.number.stroke, $0.value.shading.color, $0.value.symbol.symbol),
+        //                for: UIControlState.normal)
+        //        }
         
         if let _ = scoreLabel {
             scoreLabel.text = "Score: \(newGame.score)"
         }
-
-
+        
+        
     }
     
     @IBOutlet weak var cardsLeft: UILabel!
     
     @IBAction func dealMore(_ sender: UIButton) {
-            deal(3)
+        deal(3)
     }
     
     private func numberize(by color: UIColor, _ fColor: UIColor, _ symbol: String) -> NSAttributedString {
@@ -106,7 +108,7 @@ class ViewController: UIViewController {
 
 extension UIButton {
     var activeCard: Bool {
-       return self.backgroundColor == #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) ? false : true
+        return self.backgroundColor == #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0) ? false : true
     }
     
     func selectCard() {
@@ -123,8 +125,8 @@ extension UIButton {
         self.setAttributedTitle(nsaString, for: UIControlState.normal)
     }
     func activateCard() {
-//        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-//        self.setTitle("", for: UIControlState.normal)
+        //        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        //        self.setTitle("", for: UIControlState.normal)
     }
 }
 
