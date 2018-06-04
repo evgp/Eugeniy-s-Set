@@ -23,30 +23,37 @@ import Foundation
 
 struct Card: Equatable {
     static func == (lhs: Card, rhs: Card) -> Bool {
-       return (lhs.color == rhs.color &&
-        lhs.number == rhs.number &&
-        lhs.shading == rhs.shading &&
-        lhs.symbol == rhs.symbol) ||
-        (lhs.color == rhs.color &&
-        lhs.number != rhs.number &&
-        lhs.shading != rhs.shading &&
-        lhs.symbol != rhs.symbol) ||
-        (lhs.color != rhs.color &&
-        lhs.number == rhs.number &&
-        lhs.shading != rhs.shading &&
-        lhs.symbol != rhs.symbol) ||
-        (lhs.color != rhs.color &&
-        lhs.number != rhs.number &&
-        lhs.shading == rhs.shading &&
-        lhs.symbol != rhs.symbol) ||
-        (lhs.color != rhs.color &&
-        lhs.number != rhs.number &&
-        lhs.shading != rhs.shading &&
-        lhs.symbol == rhs.symbol) ||
-        (lhs.color != rhs.color &&
-        lhs.number != rhs.number &&
-        lhs.shading != rhs.shading &&
-        lhs.symbol != rhs.symbol)
+       return
+                (lhs.color == rhs.color ||
+                lhs.number == rhs.number ||
+                lhs.shading == rhs.shading ||
+                lhs.symbol == rhs.symbol)
+
+        //        (lhs.color == rhs.color &&
+//        lhs.number == rhs.number &&
+//        lhs.shading == rhs.shading &&
+//        lhs.symbol == rhs.symbol)
+//        ||
+//        (lhs.color == rhs.color &&
+//        lhs.number != rhs.number &&
+//        lhs.shading != rhs.shading &&
+//        lhs.symbol != rhs.symbol) ||
+//        (lhs.color != rhs.color &&
+//        lhs.number == rhs.number &&
+//        lhs.shading != rhs.shading &&
+//        lhs.symbol != rhs.symbol) ||
+//        (lhs.color != rhs.color &&
+//        lhs.number != rhs.number &&
+//        lhs.shading == rhs.shading &&
+//        lhs.symbol != rhs.symbol) ||
+//        (lhs.color != rhs.color &&
+//        lhs.number != rhs.number &&
+//        lhs.shading != rhs.shading &&
+//        lhs.symbol == rhs.symbol) ||
+//        (lhs.color != rhs.color &&
+//        lhs.number != rhs.number &&
+//        lhs.shading != rhs.shading &&
+//        lhs.symbol != rhs.symbol)
     }
 
     var number = 0      //symbol stroke

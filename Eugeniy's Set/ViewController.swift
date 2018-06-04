@@ -19,13 +19,10 @@ class ViewController: UIViewController {
     
     @IBOutlet var cardButtons: [UIButton]! {
         didSet {
-            //            //deal cards per button
-            //            for index in 12...23 {
-            //                let button = cardButtons[index]
-            //                button.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-            //                button.setTitle("", for: UIControlState.normal)
-            //
-            //            }
+
+            cardButtons.forEach() {
+                $0.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+            }
             deal(24)
             updateView()
         }
@@ -41,24 +38,25 @@ class ViewController: UIViewController {
     
     func updateView() {
         newGame.cardField.forEach() {
-            if $0.value.isSelected {
-                cardButtons[$0.key].selectCard()
+            let indexC = newGame.cardField.index(of: $0)!
+            if $0.isSelected {
+                cardButtons[indexC].selectCard()
             } else {
-                cardButtons[$0.key].noSelectCard()
+                cardButtons[indexC].noSelectCard()
             }
             
-            if $0.value.isSet {
-                cardButtons[$0.key].deactivateCard(numberize(by: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), ""))
+            if $0.isSet {
+                cardButtons[indexC].deactivateCard(numberize(by: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), ""))
             }
         }
-        
+        // TODO: Deal 3 card
         cardButtons.forEach() {
             let index = cardButtons.index(of: $0)!
-            if !(newGame.cardField[index]!.isSet) {
-                $0.backgroundColor = newGame.cardField[index]!.color.background
-                $0.setTitle(newGame.cardField[index]!.symbol.symbol, for: UIControlState.normal)
+            if !(newGame.cardField[index].isSet) && !($0.activeCard){
+                $0.backgroundColor = newGame.cardField[index].color.background
+                $0.setTitle(newGame.cardField[index].symbol.symbol, for: UIControlState.normal)
                 $0.setAttributedTitle(
-                    numberize(by: newGame.cardField[index]!.number.stroke, newGame.cardField[index]!.shading.color, newGame.cardField[index]!.symbol.symbol),
+                    numberize(by: newGame.cardField[index].number.stroke, newGame.cardField[index].shading.color, newGame.cardField[index].symbol.symbol),
                     for: UIControlState.normal)
             }
         }
@@ -94,13 +92,18 @@ class ViewController: UIViewController {
     }
     
     func deal(_ cardCount: Int) {
+        newGame.cardField.forEach() {
+            let index = newGame.cardField.index(of: $0)!
+            if $0.isSet { newGame.cardField.remove(at: index) }
+        }
         var cc = cardCount
-        while cc != 0 {
+        
+        repeat {
             let randomCard = newGame.cards[(newGame.cards.count-1).random]
-            newGame.cardField[newGame.cardField.count] = randomCard
+            newGame.cardField.append(randomCard)
             newGame.cards.remove(at: newGame.cards.index(of: randomCard)!)
             cc -= 1
-        }
+        } while cc != 0
         updateView()
     }
     
@@ -123,10 +126,6 @@ extension UIButton {
         self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         self.setTitle("", for: UIControlState.normal)
         self.setAttributedTitle(nsaString, for: UIControlState.normal)
-    }
-    func activateCard() {
-        //        self.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
-        //        self.setTitle("", for: UIControlState.normal)
     }
 }
 

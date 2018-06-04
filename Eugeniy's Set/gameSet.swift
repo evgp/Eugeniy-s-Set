@@ -17,46 +17,47 @@ import Foundation
 
 struct gameSet {
     var cards = [Card]()
-    var cardField = [Int:Card]()
+    var cardField = [Card]()
+//        didSet {
+//
+//        }
+    
     var score = 0
-    private var choosenCards = [Int:Card]()
+    private var choosenCards = [Card]()
     
     mutating func chooseCard(at index: Int) {
-        if (choosenCards.count >= 2) && !choosenCards.contains() {$0.key == index} {
-            choosenCards[index] = cardField[index]
+        if (choosenCards.count >= 2) {
+            choosenCards.append(cardField[index])
             if  compareCards(choosenCards)  {
                 choosenCards.forEach() {
-                    let key = $0.key
-                    cardField[key]?.isSet = true
-                    cardField[key]?.isSelected = false
-                    choosenCards.removeAll()
+                    let cardIndex = cardField.index(of: $0)!
+                    cardField[cardIndex].isSet = true
+                    cardField[cardIndex].isSelected = false
+                    cardField.remove(at: cardIndex)
                 }
                 score += 1
             } else {
                 choosenCards.forEach() {
-                    let key = $0.key
-                    cardField[key]?.isSelected = false
-                    choosenCards.removeAll()
+                    let cardIndex = cardField.index(of: $0)!
+                    cardField[cardIndex].isSelected = false
                 }
             }
+            choosenCards.removeAll()
         } else {
-            if (cardField[index]?.isSelected)! {
-                cardField[index]?.isSelected = false
-                choosenCards.removeValue(forKey: index)
+            if (cardField[index].isSelected) {
+                cardField[index].isSelected = false
+                let cardIndex = choosenCards.index(of: cardField[index])!
+                choosenCards.remove(at: cardIndex)
             } else {
-                choosenCards[index] = cardField[index]
-                cardField[index]?.isSelected = true
+                choosenCards.append(cardField[index])
+                cardField[index].isSelected = true
             }
         }
     }
     
-    private func compareCards(_ choosenCards: Dictionary<Int, Card>) -> Bool {
+    private func compareCards(_ choosenCards: Array<Card>) -> Bool {
         if choosenCards.count > 3 { exit(-1) }
-        var valuesArray = [Card]()
-        for (key, _) in choosenCards {
-            valuesArray.append(choosenCards[key]!)
-        }
-        if  (valuesArray[1] == valuesArray[2]) && (valuesArray[0] == valuesArray[1]) && ((valuesArray[0] == valuesArray[2])) {
+        if  (choosenCards[1] == choosenCards[2]) && (choosenCards[0] == choosenCards[1]) && ((choosenCards[0] == choosenCards[2])) {
             return true
         } else { return false }
         
