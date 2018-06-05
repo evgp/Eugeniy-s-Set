@@ -41,14 +41,14 @@ class ViewController: UIViewController {
         // TODO: Deal 3 card
         cardButtons.forEach() {
             let index = cardButtons.index(of: $0)!
-            if newGame.cardField[index].isSelected {
+            if newGame.cardField[index].isSet {
+                $0.deactivateCard(numberize(by: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), ""))
+            }
+            
+            if newGame.cardField[index].isSelected && !newGame.cardField[index].isSet {
                 $0.selectCard()
             } else {
                 $0.noSelectCard()
-            }
-            
-            if newGame.cardField[index].isSet {
-                $0.deactivateCard(numberize(by: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), ""))
             }
             
             if !(newGame.cardField[index].isSet) && !($0.activeCard){

@@ -33,6 +33,7 @@ struct gameSet {
     var score = 0
     
     mutating func chooseCard(at index: Int) {
+        cardField[index].isSelected = !cardField[index].isSelected
         if selectedIndices().count > 2 {
             if compareCards(selectedIndices()) {
                 selectedIndices().forEach(){
@@ -45,10 +46,7 @@ struct gameSet {
                     cardField[$0].isSelected = false
                 }
             }
-        } else {
-            cardField[index].isSelected = !cardField[index].isSelected
         }
-        
     }
     
     private func compareCards(_ choosenCards: Array<Int>) -> Bool {
