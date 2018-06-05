@@ -18,46 +18,43 @@ import Foundation
 struct gameSet {
     var cards = [Card]()
     var cardField = [Card]()
-//        didSet {
-//
-//        }
+    private func selectedIndices() -> [Int] {
+        var indices = [Int]()
+        cardField.forEach() {
+            if $0.isSelected { indices.append(cardField.index(of: $0)!) }
+        }
+        return indices
+    }
+    
+    private func getCard(by index: Int) -> Card {
+        return cardField[index]
+    }
     
     var score = 0
-    private var choosenCards = [Card]()
     
     mutating func chooseCard(at index: Int) {
-        if (choosenCards.count >= 2) {
-            choosenCards.append(cardField[index])
-            if  compareCards(choosenCards)  {
-                choosenCards.forEach() {
-                    let cardIndex = cardField.index(of: $0)!
-                    cardField[cardIndex].isSet = true
-                    cardField[cardIndex].isSelected = false
-//                    cardField.remove(at: cardIndex)
+        if selectedIndices().count > 2 {
+            if compareCards(selectedIndices()) {
+                selectedIndices().forEach(){
+                    cardField[$0].isSet = true
+                    cardField[$0].isSelected = false
                 }
                 score += 1
             } else {
-                choosenCards.forEach() {
-                    let cardIndex = cardField.index(of: $0)!
-                    cardField[cardIndex].isSelected = false
+                selectedIndices().forEach(){
+                    cardField[$0].isSelected = false
                 }
             }
-            choosenCards.removeAll()
         } else {
-            if (cardField[index].isSelected) {
-                cardField[index].isSelected = false
-                let cardIndex = choosenCards.index(of: cardField[index])!
-                choosenCards.remove(at: cardIndex)
-            } else {
-                choosenCards.append(cardField[index])
-                cardField[index].isSelected = true
-            }
+            cardField[index].isSelected = !cardField[index].isSelected
         }
+        
     }
     
-    private func compareCards(_ choosenCards: Array<Card>) -> Bool {
-        if choosenCards.count > 3 { exit(-1) }
-        if  Card.isSet(choosenCards[1], choosenCards[2]) && Card.isSet(choosenCards[0], choosenCards[1]) && Card.isSet(choosenCards[0], choosenCards[2]) {
+    private func compareCards(_ choosenCards: Array<Int>) -> Bool {
+        if  Card.isSet(getCard(by: choosenCards[1]), getCard(by: choosenCards[2])) &&
+            Card.isSet(getCard(by: choosenCards[0]), getCard(by: choosenCards[1])) &&
+            Card.isSet(getCard(by: choosenCards[0]), getCard(by: choosenCards[2])) {
             return true
         } else { return false }
         
