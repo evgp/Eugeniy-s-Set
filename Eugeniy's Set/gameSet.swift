@@ -33,7 +33,7 @@ struct gameSet {
                     let cardIndex = cardField.index(of: $0)!
                     cardField[cardIndex].isSet = true
                     cardField[cardIndex].isSelected = false
-                    cardField.remove(at: cardIndex)
+//                    cardField.remove(at: cardIndex)
                 }
                 score += 1
             } else {
@@ -68,7 +68,7 @@ struct gameSet {
             for sym in 1...3 {
                 for sha in 1...3 {
                     for col in 1...3 {
-                        cards += [Card(number: num, symbol: sym, shading: sha, color: col, isSelected: false, isSet: false)]
+                        cards += [Card(num, sym, sha, col, false, false)]
                     }
                 }
             }

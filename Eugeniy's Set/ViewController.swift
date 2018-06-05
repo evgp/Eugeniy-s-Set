@@ -37,21 +37,20 @@ class ViewController: UIViewController {
     }
     
     func updateView() {
-        newGame.cardField.forEach() {
-            let indexC = newGame.cardField.index(of: $0)!
-            if $0.isSelected {
-                cardButtons[indexC].selectCard()
-            } else {
-                cardButtons[indexC].noSelectCard()
-            }
-            
-            if $0.isSet {
-                cardButtons[indexC].deactivateCard(numberize(by: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), ""))
-            }
-        }
+        
         // TODO: Deal 3 card
         cardButtons.forEach() {
             let index = cardButtons.index(of: $0)!
+            if newGame.cardField[index].isSelected {
+                $0.selectCard()
+            } else {
+                $0.noSelectCard()
+            }
+            
+            if newGame.cardField[index].isSet {
+                $0.deactivateCard(numberize(by: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), ""))
+            }
+            
             if !(newGame.cardField[index].isSet) && !($0.activeCard){
                 $0.backgroundColor = newGame.cardField[index].color.background
                 $0.setTitle(newGame.cardField[index].symbol.symbol, for: UIControlState.normal)
@@ -61,18 +60,13 @@ class ViewController: UIViewController {
             }
         }
         
-        //        newGame.cardField.forEach() {
-        //            cardButtons[$0.key].backgroundColor = $0.value.color.background
-        //            cardButtons[$0.key].setTitle($0.value.symbol.symbol, for: UIControlState.normal)
-        //            cardButtons[$0.key].setAttributedTitle(
-        //                numberize(by: $0.value.number.stroke, $0.value.shading.color, $0.value.symbol.symbol),
-        //                for: UIControlState.normal)
-        //        }
-        
         if let _ = scoreLabel {
             scoreLabel.text = "Score: \(newGame.score)"
         }
         
+        newGame.cardField.forEach() {
+            if $0.isSet { newGame.cardField.remove(at: newGame.cardField.index(of: $0)!) }
+        }
         
     }
     

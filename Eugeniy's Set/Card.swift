@@ -21,7 +21,9 @@ import Foundation
  3^4 = 81 different cards
  */
 
-struct Card: Equatable {
+struct Card: Hashable {
+    var hashValue: Int {return idC}
+    
     static func == (lhs: Card, rhs: Card) -> Bool {
        return
                 (lhs.color == rhs.color ||
@@ -55,7 +57,7 @@ struct Card: Equatable {
 //        lhs.shading != rhs.shading &&
 //        lhs.symbol != rhs.symbol)
     }
-
+    private(set) var idC = 0
     var number = 0      //symbol stroke
     var symbol = 0
     var shading = 0     //symbol color
@@ -63,6 +65,26 @@ struct Card: Equatable {
     
     var isSelected = false
     var isSet = false
+    
+    private static var idCFactory = 0
+    
+    private static func getId() -> Int {
+        idCFactory += 1
+        return idCFactory
+    }
+    
+    init(_ number: Int, _ symbol: Int, _ shading: Int, _ color: Int, _ isSelected: Bool,_ isSet: Bool) {
+
+        //        self.idC += 1 we should not use this, because there is no stored previous id in class. let's use private static property... as Paul tought us...
+        self.idC = Card.getId()
+        self.color = color
+        self.number = number
+        self.symbol = symbol
+        self.shading = shading
+        self.isSet = isSet
+        self.isSelected = isSelected
+    }
+    
     
 }
 
