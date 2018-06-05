@@ -57,7 +57,7 @@ struct gameSet {
     
     private func compareCards(_ choosenCards: Array<Card>) -> Bool {
         if choosenCards.count > 3 { exit(-1) }
-        if  (choosenCards[1] == choosenCards[2]) && (choosenCards[0] == choosenCards[1]) && ((choosenCards[0] == choosenCards[2])) {
+        if  Card.isSet(choosenCards[1], choosenCards[2]) && Card.isSet(choosenCards[0], choosenCards[1]) && Card.isSet(choosenCards[0], choosenCards[2]) {
             return true
         } else { return false }
         

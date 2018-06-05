@@ -24,7 +24,7 @@ import Foundation
 struct Card: Hashable {
     var hashValue: Int {return idC}
     
-    static func == (lhs: Card, rhs: Card) -> Bool {
+    static func isSet(_ lhs: Card, _ rhs: Card) -> Bool {
        return
                 (lhs.color == rhs.color ||
                 lhs.number == rhs.number ||
@@ -57,6 +57,7 @@ struct Card: Hashable {
 //        lhs.shading != rhs.shading &&
 //        lhs.symbol != rhs.symbol)
     }
+    
     private(set) var idC = 0
     var number = 0      //symbol stroke
     var symbol = 0
