@@ -17,7 +17,6 @@ import Foundation
  3 different shapes
  3 different colors of shapes
  3 different stroke of shapes
- 
  3^4 = 81 different cards
  */
 
@@ -27,10 +26,10 @@ struct Card: Hashable {
     static func isSet(_ lhs: Card, _ rhs: Card) -> Bool {
        return
         // MARK: simple set for testing purpose
-//                (lhs.color == rhs.color ||
-//                lhs.number == rhs.number ||
-//                lhs.shading == rhs.shading ||
-//                lhs.symbol == rhs.symbol)
+        //                (lhs.color == rhs.color ||
+        //                lhs.number == rhs.number ||
+        //                lhs.shading == rhs.shading ||
+        //                lhs.symbol == rhs.symbol)
 
         (lhs.color == rhs.color &&
         lhs.number == rhs.number &&
