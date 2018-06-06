@@ -10,10 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
     private var newGame = gameSet()
-    //    private var selectedCards = [Card]()
-    
     
     @IBOutlet weak var scoreLabel: UILabel! {
         didSet {
