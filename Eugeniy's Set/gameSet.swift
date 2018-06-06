@@ -17,33 +17,33 @@ import Foundation
 
 struct gameSet {
     var cards = [Card]()
-    var cardField = [Card]()
+    var cardField = [Card?]()
     private func selectedIndices() -> [Int] {
         var indices = [Int]()
         cardField.forEach() {
-            if $0.isSelected { indices.append(cardField.index(of: $0)!) }
+            if $0!.isSelected { indices.append(cardField.index(of: $0)!) }
         }
         return indices
     }
     
     private func getCard(by index: Int) -> Card {
-        return cardField[index]
+        return cardField[index]!
     }
     
     var score = 0
     
     mutating func chooseCard(at index: Int) {
-        cardField[index].isSelected = !cardField[index].isSelected
+        cardField[index]!.isSelected = !cardField[index]!.isSelected
         if selectedIndices().count > 2 {
             if compareCards(selectedIndices()) {
                 selectedIndices().forEach(){
-                    cardField[$0].isSet = true
-                    cardField[$0].isSelected = false
+                    cardField[$0]!.isSet = true
+                    cardField[$0]!.isSelected = false
                 }
                 score += 1
             } else {
                 selectedIndices().forEach(){
-                    cardField[$0].isSelected = false
+                    cardField[$0]!.isSelected = false
                 }
             }
         }

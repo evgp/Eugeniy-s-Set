@@ -15,7 +15,11 @@ class ViewController: UIViewController {
     //    private var selectedCards = [Card]()
     
     
-    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel! {
+        didSet {
+            scoreLabel.text = "Score: \(newGame.score)"
+        }
+    }
     
     @IBOutlet var cardButtons: [UIButton]! {
         didSet {
@@ -41,21 +45,21 @@ class ViewController: UIViewController {
         // TODO: Deal 3 card
         cardButtons.forEach() {
             let index = cardButtons.index(of: $0)!
-            if newGame.cardField[index].isSet {
+            if let _ = newGame.cardField[index]?.isSet {
                 $0.deactivateCard(numberize(by: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0), ""))
-            }
+             }
             
-            if newGame.cardField[index].isSelected && !newGame.cardField[index].isSet {
+            if newGame.cardField[index]!.isSelected && !newGame.cardField[index]!.isSet {
                 $0.selectCard()
             } else {
                 $0.noSelectCard()
             }
             
-            if !(newGame.cardField[index].isSet) && !($0.activeCard){
-                $0.backgroundColor = newGame.cardField[index].color.background
-                $0.setTitle(newGame.cardField[index].symbol.symbol, for: UIControlState.normal)
+            if !(newGame.cardField[index]!.isSet) && !($0.activeCard){
+                $0.backgroundColor = newGame.cardField[index]!.color.background
+                $0.setTitle(newGame.cardField[index]!.symbol.symbol, for: UIControlState.normal)
                 $0.setAttributedTitle(
-                    numberize(by: newGame.cardField[index].number.stroke, newGame.cardField[index].shading.color, newGame.cardField[index].symbol.symbol),
+                    numberize(by: newGame.cardField[index]!.number.stroke, newGame.cardField[index]!.shading.color, newGame.cardField[index]!.symbol.symbol),
                     for: UIControlState.normal)
             }
         }
@@ -64,13 +68,18 @@ class ViewController: UIViewController {
             scoreLabel.text = "Score: \(newGame.score)"
         }
         
-        newGame.cardField.forEach() {
-            if $0.isSet { newGame.cardField.remove(at: newGame.cardField.index(of: $0)!) }
+        if let _ = cardsLeft {
+            cardsLeft.text = "Cards left in heap: \(newGame.cards.count)"
         }
+        
         
     }
     
-    @IBOutlet weak var cardsLeft: UILabel!
+    @IBOutlet weak var cardsLeft: UILabel! {
+        didSet {
+            cardsLeft.text = "Cards left in heap: \(newGame.cards.count)"
+        }
+    }
     
     @IBAction func dealMore(_ sender: UIButton) {
         deal(3)
@@ -86,21 +95,21 @@ class ViewController: UIViewController {
     }
     
     func deal(_ cardCount: Int) {
-        newGame.cardField.forEach() {
-            let index = newGame.cardField.index(of: $0)!
-            if $0.isSet { newGame.cardField.remove(at: index) }
-        }
         var cc = cardCount
         
         repeat {
             let randomCard = newGame.cards[(newGame.cards.count-1).random]
-            newGame.cardField.append(randomCard)
+            if (newGame.cardField.count < 24) {
+                newGame.cardField.append(randomCard)
+            } else {
+                let index = newGame.cardField.index(where: { $0?.isSet == true })
+                newGame.cardField[index!] = randomCard
+            }
             newGame.cards.remove(at: newGame.cards.index(of: randomCard)!)
             cc -= 1
         } while cc != 0
         updateView()
     }
-    
 }
 
 extension UIButton {
