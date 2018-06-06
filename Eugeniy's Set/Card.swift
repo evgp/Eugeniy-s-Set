@@ -26,36 +26,41 @@ struct Card: Hashable {
     
     static func isSet(_ lhs: Card, _ rhs: Card) -> Bool {
        return
-                (lhs.color == rhs.color ||
-                lhs.number == rhs.number ||
-                lhs.shading == rhs.shading ||
-                lhs.symbol == rhs.symbol)
+        // MARK: simple set for testing purpose
+//                (lhs.color == rhs.color ||
+//                lhs.number == rhs.number ||
+//                lhs.shading == rhs.shading ||
+//                lhs.symbol == rhs.symbol)
 
-        //        (lhs.color == rhs.color &&
-//        lhs.number == rhs.number &&
-//        lhs.shading == rhs.shading &&
-//        lhs.symbol == rhs.symbol)
-//        ||
-//        (lhs.color == rhs.color &&
-//        lhs.number != rhs.number &&
-//        lhs.shading != rhs.shading &&
-//        lhs.symbol != rhs.symbol) ||
-//        (lhs.color != rhs.color &&
-//        lhs.number == rhs.number &&
-//        lhs.shading != rhs.shading &&
-//        lhs.symbol != rhs.symbol) ||
-//        (lhs.color != rhs.color &&
-//        lhs.number != rhs.number &&
-//        lhs.shading == rhs.shading &&
-//        lhs.symbol != rhs.symbol) ||
-//        (lhs.color != rhs.color &&
-//        lhs.number != rhs.number &&
-//        lhs.shading != rhs.shading &&
-//        lhs.symbol == rhs.symbol) ||
-//        (lhs.color != rhs.color &&
-//        lhs.number != rhs.number &&
-//        lhs.shading != rhs.shading &&
-//        lhs.symbol != rhs.symbol)
+        (lhs.color == rhs.color &&
+        lhs.number == rhs.number &&
+        lhs.shading == rhs.shading &&
+        lhs.symbol == rhs.symbol)
+        ||
+        (lhs.color == rhs.color &&
+        lhs.number != rhs.number &&
+        lhs.shading != rhs.shading &&
+        lhs.symbol != rhs.symbol) ||
+            
+        (lhs.color != rhs.color &&
+        lhs.number == rhs.number &&
+        lhs.shading != rhs.shading &&
+        lhs.symbol != rhs.symbol) ||
+            
+        (lhs.color != rhs.color &&
+        lhs.number != rhs.number &&
+        lhs.shading == rhs.shading &&
+        lhs.symbol != rhs.symbol) ||
+            
+        (lhs.color != rhs.color &&
+        lhs.number != rhs.number &&
+        lhs.shading != rhs.shading &&
+        lhs.symbol == rhs.symbol) ||
+            
+        (lhs.color != rhs.color &&
+        lhs.number != rhs.number &&
+        lhs.shading != rhs.shading &&
+        lhs.symbol != rhs.symbol)
     }
     
     private(set) var idC = 0
